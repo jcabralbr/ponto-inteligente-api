@@ -16,8 +16,12 @@ public class FuncionarioServiceImpl implements FuncionarioService {
 
     private static final Logger log = LoggerFactory.getLogger(FuncionarioServiceImpl.class);
 
-    @Autowired
     private FuncionarioRepository funcionarioRepository;
+
+    @Autowired
+    public FuncionarioServiceImpl(FuncionarioRepository funcionarioRepository) {
+        this.funcionarioRepository = funcionarioRepository;
+    }
 
     public Funcionario persistir(Funcionario funcionario) {
         log.info("Persistindo funcionário: {}", funcionario);
@@ -38,5 +42,4 @@ public class FuncionarioServiceImpl implements FuncionarioService {
         log.info("Buscando funcionário pelo IDl {}", id);
         return Optional.ofNullable(this.funcionarioRepository.findOne(id));
     }
-
 }
