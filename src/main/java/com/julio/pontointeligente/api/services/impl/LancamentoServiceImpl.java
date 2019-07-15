@@ -20,8 +20,13 @@ public class LancamentoServiceImpl implements LancamentoService {
 
     private static final Logger log = LoggerFactory.getLogger(LancamentoServiceImpl.class);
 
-    @Autowired
+
     private LancamentoRepository lancamentoRepository;
+
+    @Autowired
+    public LancamentoServiceImpl(LancamentoRepository lancamentoRepository) {
+        this.lancamentoRepository = lancamentoRepository;
+    }
 
     public Page<Lancamento> buscarPorFuncionarioId(Long funcionarioId, PageRequest pageRequest) {
         log.info("Buscando lançamentos para o funcionário ID {}", funcionarioId);
@@ -44,5 +49,4 @@ public class LancamentoServiceImpl implements LancamentoService {
         log.info("Removendo o lançamento ID {}", id);
         this.lancamentoRepository.delete(id);
     }
-
 }
