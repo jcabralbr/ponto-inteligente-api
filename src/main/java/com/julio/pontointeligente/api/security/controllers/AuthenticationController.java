@@ -43,7 +43,7 @@ public class AuthenticationController {
 	private AuthenticationManager authenticationManager;
 
 	@Autowired
-	private com.julio.pontointeligente.api.security.utils.JwtTokenUtil jwtTokenUtil;
+	private JwtTokenUtil jwtTokenUtil;
 
 	@Autowired
 	private UserDetailsService userDetailsService;
